@@ -1,0 +1,14 @@
+version: 0.2
+
+env:
+  variables:
+    S3_BUCKET: "ecs-cloudformation-2021"
+
+phases:
+  pre_build:
+    commands:
+      - chmod a+x ./tests/validate-templates.sh
+      - ./tests/validate-templates.sh
+  build:
+    commands:
+      
