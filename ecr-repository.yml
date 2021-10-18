@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create ecr repository
+
+Parameters:
+  repoName:
+    Type: String
+    Default: simplehttp
+Resources:
+  Repository:
+    Type: AWS::ECR::Repository    
+    Properties:
+      RepositoryName: !Ref repoName
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      RepositoryPolicyText:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowPushPull
+            Effect: Allow
+            Principal: "*"
+            Action: "ecr:*"

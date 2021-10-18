@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: ECS IAM Roles
+
+Resources:
+  ecsInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Path: /
+      AssumeRolePolicyDocument:
+        
+  ECSRole:
+    Type: AWS::IAM::Role

@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create CD of lambda
+Parameters:
+  HelloWorldCodePipeline:
+    Type: String
+    Default: HelloWorldCodePipeline
+Resources:
+  LambdaCodePipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      Name: !Ref HelloWorldCodePipeline
+      ArtifactStore:
+        Type: S3
+        Location: cm-lambda-code-deploy
+      RoleArn: arn:aws:iam::account-id:/role
+      Stages:
+        - 1

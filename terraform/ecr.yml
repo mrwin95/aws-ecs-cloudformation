@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: 'Create ecr'
+
+Resources:
+  Ecr:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: 'ecr-repository'
+      ImageTagMutability: "IMMUTABLE"
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: "AES256"
